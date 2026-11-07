@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS jobs (
+    id UUID PRIMARY KEY,
+    title VARCHAR(120) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS employees (
+    id UUID PRIMARY KEY,
+    name VARCHAR(120) NOT NULL,
+    email VARCHAR(254) NOT NULL UNIQUE,
+    job_id UUID REFERENCES jobs(id)
+);
